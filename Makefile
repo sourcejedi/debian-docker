@@ -22,7 +22,8 @@ $(tag):
 	mkdir $@
 
 $(tag)/root.tar: roots/$(tag) $(tag)
-	cd roots/$(tag) && tar cf ../../$(tag)/root.tar ./
+	cd roots/$(tag) \
+		&& tar -c --numeric-owner -f ../../$(tag)/root.tar ./
 
 roots/$(tag):
 	mkdir -p $@ \
